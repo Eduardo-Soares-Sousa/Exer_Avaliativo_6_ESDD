@@ -7,7 +7,7 @@
 typedef struct paciente* Paciente;
 typedef struct cadastro* Cadastro;
 
-/*Cadastro de paciente*/
+/*Cadastro do paciente*/
 
 void iniciar_cadastro(Cadastro* sistema);
 
@@ -21,7 +21,7 @@ bool esta_vazio(Cadastro sistema);
 
 void destruir_cadastro(Cadastro sistema);
 
-/*Fim Cadastro paciente*/
+/*Fim Cadastro do paciente*/
 
 /*-----------------------------------------------------*/
 

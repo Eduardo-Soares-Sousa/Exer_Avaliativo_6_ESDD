@@ -27,7 +27,7 @@ bool confirma_cadastro(Cadastro sistema, Paciente paciente) {
     return true;
 }
 
-int tamanho_cadastro(Cadastro sistema) {
+int tamanho_cadastro(Cadastro sistema){
     return sistema->cadastrados;
 }
 
@@ -39,11 +39,11 @@ bool esta_vazio(Cadastro sistema) {
     return sistema->cadastrados == 0;
 }
 
-void destruir_cadastro(Cadastro sistema) {
+void destruir_cadastro(Cadastro sistema){
     free(sistema);
 }
 
-/*------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------*/
 
 Paciente criar_Paciente(int numSUS, int idade, bool ehTrabSaude, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento) {
     Paciente paciente = malloc(sizeof(struct paciente));
@@ -72,7 +72,7 @@ char* to_string_paciente(Paciente paciente){
 }
 */
 
-int prioridades(bool ehTrabSaude, int idade, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento) {
+int prioridades(bool ehTrabSaude, int idade, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento){
     if (idade > 60) {
         return 2;
     } else if (ehTrabSaude) {
