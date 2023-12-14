@@ -69,11 +69,11 @@ int main(int argc, char const *argv[]){
             }
             case 2: {
                 Element paciente_atual = sai_da_fila(fila_vacinacao);
-                if (paciente_atual != -1) {
+                if(paciente_atual != NULL){
                     adicionar_fila(fila_vacinados, paciente_atual);
                     push(pilha_vacinados, paciente_atual);
                     printf("Paciente chamado para vacinação e movido para a pilha de vacinados.\n");
-                } else {
+                } else{
                     printf("Fila de vacinação vazia. Nenhum paciente chamado.\n");
                 }
 
