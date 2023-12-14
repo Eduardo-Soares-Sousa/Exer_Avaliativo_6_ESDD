@@ -6,6 +6,7 @@
 
 typedef struct node* Node;
 typedef struct fila* Fila;
+
 typedef Paciente Element;
 
 void iniciar_fila(Fila* fila);

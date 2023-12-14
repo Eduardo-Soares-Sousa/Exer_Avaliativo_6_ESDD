@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX_SIZE 10
+#define MAX_SIZE 20
 
 typedef struct paciente* Paciente;
 typedef struct cadastro* Cadastro;

@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]){
     do{
         opcao = menu();
 
-        switch (opcao) {
+        switch(opcao){
             case 1: {
                 int numSUS, idade;
                 printf("Numero do SUS: ");

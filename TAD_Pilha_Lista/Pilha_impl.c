@@ -13,7 +13,7 @@ struct stack{
     Node topo;
 };
 
-void init(Pilha* pilha) {
+void init(Pilha* pilha){
     *pilha = malloc(sizeof(struct stack));
     (*pilha)->topo = NULL;
 }
