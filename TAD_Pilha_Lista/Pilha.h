@@ -9,9 +9,9 @@ typedef int Tipo_Informacao;
 
 void init(Pilha* pilha);
 
-bool is_empty(Pilha pilha);
-
 bool is_full(Pilha pilha);
+
+bool is_empty(Pilha pilha);
 
 bool push(Pilha pilha, Tipo_Informacao elemento);
 

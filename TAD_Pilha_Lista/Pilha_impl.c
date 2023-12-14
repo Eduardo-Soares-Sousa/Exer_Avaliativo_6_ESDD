@@ -27,7 +27,7 @@ bool is_empty(Pilha pilha){
 }
 
 
-bool push(Pilha pilha, Tipo_Informacao elemento) {
+bool push(Pilha pilha, Tipo_Informacao elemento){
     if (pilha != NULL) {
         Node novo = malloc(sizeof(struct node));
         novo->info = elemento;
