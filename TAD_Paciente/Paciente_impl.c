@@ -1,92 +1,67 @@
 #include "Paciente.h"
+#include "Pilha.h"
+#include "Fila.h"
 
-struct paciente{
+struct paciente {
     int numSUS;
     int idade;
     int prioridade;
 };
 
-struct cadastro{
+struct cadastro {
     Paciente vetor[MAX_SIZE];
     int cadastrados;
 };
 
-int tamanho_cadastro(Cadastro sistema){
-    return sistema->cadastrados;
-}
-
-void inciar_cadastro(Cadastro* sistema){
+void iniciar_cadastro(Cadastro* sistema) {
     *sistema = malloc(sizeof(struct cadastro));
     (*sistema)->cadastrados = 0;
 }
 
-bool confirma_cadastro(Cadastro sistema, Paciente paciente){
-    if(esta_cheio(sistema) || paciente == NULL){
+bool confirma_cadastro(Cadastro sistema, Paciente paciente) {
+    if (esta_cheio(sistema) || paciente == NULL) {
         return false;
     }
     sistema->vetor[sistema->cadastrados] = paciente;
     sistema->cadastrados += 1;
-    return true;    
+    return true;
 }
 
-bool esta_cheio(Cadastro sistema){
-    if(sistema->cadastrados == MAX_SIZE-1){
-        return true;
-    }else{
-        return false;                                                                                                   
-    }
+int tamanho_cadastro(Cadastro sistema) {
+    return sistema->cadastrados;
 }
 
-bool esta_vazio(Cadastro sistema){
+bool esta_cheio(Cadastro sistema) {
+    return sistema->cadastrados == MAX_SIZE - 1;
+}
+
+bool esta_vazio(Cadastro sistema) {
     return sistema->cadastrados == 0;
+}
+
+void destruir_cadastro(Cadastro sistema) {
+    free(sistema);
 }
 
 /*------------------------------------------------------------------------*/
 
-/*
-bool questionario(bool t){
-    
-}
-*/
-
-Paciente criar_Paciente(int numSUS, int idade, bool ehTrabSaude, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento){
-    Paciente paciente;
-    paciente = malloc(sizeof(struct paciente));
+Paciente criar_Paciente(int numSUS, int idade, bool ehTrabSaude, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento) {
+    Paciente paciente = malloc(sizeof(struct paciente));
 
     paciente->numSUS = numSUS;
     paciente->idade = idade;
-    //paciente->prioridade = prioridades(int prioridades);
+    paciente->prioridade = prioridades(ehTrabSaude, idade, ehIndigena, ehRibeirinho, ehQuilombola, ehTrabEdu, ehDefiSevera, ehForcaSeg, ehTrabPeniten, ehDetento);
 
-    if(idade > 60){
-        paciente->prioridade = 2;
-    }else if(ehTrabSaude){
-        paciente->prioridade = 1;
-    } else if(ehIndigena){
-        paciente->prioridade = 3;
-    } else if(ehRibeirinho || ehQuilombola){
-        paciente->prioridade = 4;
-    } else if(ehTrabEdu){
-        paciente->prioridade = 6;
-    } else if(ehDefiSevera){
-        paciente->prioridade = 7;
-    } else if(ehForcaSeg){
-        paciente->prioridade = 8;
-    } else if(ehTrabPeniten){
-        paciente->prioridade = 9;
-    } else if(ehDetento){
-        paciente->prioridade = 10;
-    }
-
-    return paciente;                        
+    return paciente;
 }
 
-void destruir_Paciente(Paciente paciente){
+void destruir_Paciente(Paciente paciente) {
     free(paciente);
 }
 
-char* to_string_paciente(Paciente paciente){
-    char* string;
-    string = malloc(sizeof(char) * 200);
+/*
+char* to_string_paciente(Paciente paciente) {
+    char* string = malloc(sizeof(char) * 200);
 
     char prioridade_str[20];
     snprintf(prioridade_str, 20, "%d", paciente->prioridade);
@@ -94,4 +69,29 @@ char* to_string_paciente(Paciente paciente){
     snprintf(string, 200, "Paciente [numSUS = %d, idade = %d, prioridade = %s]", paciente->numSUS, paciente->idade, prioridade_str);
 
     return string;
+}
+*/
+
+int prioridades(bool ehTrabSaude, int idade, bool ehIndigena, bool ehRibeirinho, bool ehQuilombola, bool ehTrabEdu, bool ehDefiSevera, bool ehForcaSeg, bool ehTrabPeniten, bool ehDetento) {
+    if (idade > 60) {
+        return 2;
+    } else if (ehTrabSaude) {
+        return 1;
+    } else if (ehIndigena) {
+        return 3;
+    } else if (ehRibeirinho || ehQuilombola) {
+        return 4;
+    } else if (ehTrabEdu) {
+        return 6;
+    } else if (ehDefiSevera) {
+        return 7;
+    } else if (ehForcaSeg) {
+        return 8;
+    } else if (ehTrabPeniten) {
+        return 9;
+    } else if (ehDetento) {
+        return 10;
+    }
+
+    return 0;
 }
