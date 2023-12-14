@@ -15,7 +15,7 @@ struct fila{
     Node fim;
 };
 
-void iniciar_fila(Fila* fila) {
+void iniciar_fila(Fila* fila){
     *fila = malloc(sizeof(struct fila));
     (*fila)->inicio = NULL;
     (*fila)->fim = NULL;

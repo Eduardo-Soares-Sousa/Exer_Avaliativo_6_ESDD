@@ -55,12 +55,12 @@ Paciente criar_Paciente(int numSUS, int idade, bool ehTrabSaude, bool ehIndigena
     return paciente;
 }
 
-void destruir_Paciente(Paciente paciente) {
+void destruir_Paciente(Paciente paciente){
     free(paciente);
 }
 
 /*
-char* to_string_paciente(Paciente paciente) {
+char* to_string_paciente(Paciente paciente){
     char* string = malloc(sizeof(char) * 200);
 
     char prioridade_str[20];

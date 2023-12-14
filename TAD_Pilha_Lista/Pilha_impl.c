@@ -18,11 +18,11 @@ void init(Pilha* pilha){
     (*pilha)->topo = NULL;
 }
 
-bool is_full(Pilha pilha) {
+bool is_full(Pilha pilha){
     return false;
 }
 
-bool is_empty(Pilha pilha) {
+bool is_empty(Pilha pilha){
     return pilha->topo == NULL;
 }
 

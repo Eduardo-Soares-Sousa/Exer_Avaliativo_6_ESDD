@@ -19,4 +19,5 @@ bool adicionar_fila(Fila fila, Element novo_elemento);
 
 Element sai_da_fila(Fila fila);
 
+
 void inserir_na_fila_prioritaria(Fila fila, Paciente novo_elemento);

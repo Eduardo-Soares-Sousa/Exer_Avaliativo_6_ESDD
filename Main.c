@@ -58,7 +58,7 @@ int main(int argc, char const *argv[]){
 
                 Paciente paciente = criar_Paciente(numSUS, idade, ehTrabSaude, ehIndigena, ehRibeirinho, ehQuilombola, ehTrabEdu, ehDefiSevera, ehForcaSeg, ehTrabPeniten, ehDetento);
 
-                if (confirma_cadastro(sistema, paciente)) {
+                if(confirma_cadastro(sistema, paciente)){
                     printf("Paciente cadastrado com sucesso!\n");
                     inserir_na_fila_prioritaria(fila_vacinacao, (Paciente) paciente);
                 } else {
